@@ -21,7 +21,8 @@ final as (
         orders.order_id,
         orders.customer_id,
         orders.order_date,
-        coalesce(order_payments.amount_usd, 0) as amount_usd
+        coalesce(order_payments.amount_usd, 0) as amount_usd,
+        'no_value' as nonsense
 
     from orders
     left join order_payments using (order_id)
