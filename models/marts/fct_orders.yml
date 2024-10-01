@@ -3,5 +3,10 @@ models:
   - name: fct_orders
     columns:
       - name: fct_order_pk
+        description: surrogate key
+        constraints:
+          - type: not_null
+          - type: primary_key # not enforced  -- will warn & include
         tests:
+          - unique            # need this test because primary_key constraint is not enforced
           - dbt_constraints.primary_key
