@@ -1,0 +1,6 @@
+models:
+  - name: fct_orders
+    columns:
+      - name: fct_order_pk
+        tests:
+          - dbt_constraints.primary_key
