@@ -211,5 +211,4 @@ with flat as (
 )
 select *
 from credits
-
 ;
