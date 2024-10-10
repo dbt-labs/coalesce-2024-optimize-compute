@@ -22,7 +22,10 @@ final as (
         orders.order_id,
         orders.customer_id,
         orders.order_date,
-        coalesce(order_payments.amount_usd, 0) as amount_usd
+        --coalesce(order_payments.amount_usd, 0) as amount_usd
+        coalesce(order_payments.amount_usd, 0) * 1.07 as amount_usd,
+        coalesce(order_payments.amount_usd > 20, false) as big_spend_flag
+
 
     from orders
     left join order_payments using (order_id)
